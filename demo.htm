@@ -1,0 +1,53 @@
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+
+
+<script src="http://monkeye.github.io/nemoapidoc/nemoapidoc.js"></script>
+
+<script>
+var data = [
+    {
+        'name': '后台',
+        'baseurl': 'http://admin.oa.com/xxx',
+        'api': {
+            'info': {
+                'url': '/topic?act=info'
+            },
+            '页面·列表': {
+                'url': '/topic?act=page',
+                'get_request': {
+                    'pgId': '（可选）页面ID，单独取某一个 pgId 的内容'
+                }
+            },            
+            '部落·删除': {
+                'url': '/topic?act=buluoDel',
+                'post_request': {
+                    'key': '部落ID，取 bId 的值'
+                }
+            }
+        }
+    },
+    {
+        'name': '前台',
+        'baseurl': 'http://xxx.qq.com/cgi-bin/',    
+        'api': {
+            '首页': {
+                'url': '/pgKey',
+                'memo': 'pgKey 为在设置的页面KEY',
+                'response': {
+                    'pgName': '页面名称',
+                    'pgBurl': '页面背景图',
+                    'pgBannerImg': '页面Banner图片Url',
+                    'pgBannerUrl': '页面Banner链接Url',
+                    'post.pBid': '部落Id',
+                    'post.pBName': '部落名称',
+                    'post.pPid': '帖子Id',
+
+                }
+            }
+        }            
+    }
+];
+
+parseData(data);
+</script>
+
