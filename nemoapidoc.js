@@ -5,6 +5,10 @@ function parseData(data, obj) {
     var str = '<h2>' + data['name'] + '</h2>';
     for(i in data['api']) {
         str += '<hr /><h3>' + i + '</h3><br /><a href="' + data['baseurl'] + data['api'][i]['url'] + '" target="_blank">' + data['baseurl'] + data['api'][i]['url'] + '</a><br />';
+        var memo = data['api'][i]['memo'] || '';
+        if(memo) {
+            str += memo + '<br />';
+        }
         var get_request = data['api'][i]['get_request'] || '';
         var post_request = data['api'][i]['post_request'] || '';
         if(get_request || post_request) {
