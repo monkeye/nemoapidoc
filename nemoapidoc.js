@@ -8,7 +8,7 @@ function parseData(data, obj) {
         var get_request = data['api'][i]['get_request'] || '';
         var post_request = data['api'][i]['post_request'] || '';
         if(get_request || post_request) {
-            str += '<b>[Request]</b><form method="' + (post_request ? 'post' : 'get') + '" _action="' + data['baseurl'] + data['api'][i]['url'] + '" onsubmit="setget(this)" target="_blank">';
+            str += '<b class="Request">[Request]</b><form method="' + (post_request ? 'post' : 'get') + '" _action="' + data['baseurl'] + data['api'][i]['url'] + '" onsubmit="setget(this)" target="_blank">';
         }
         if(get_request) {
             str += '<table><tr><th>[GET]';
@@ -26,17 +26,18 @@ function parseData(data, obj) {
         }
         var response = data['api'][i]['response'] || '';
         if(response) {
-            str += '<b>[Response]</b><table>';
+            str += '<b class="Response">[Response]</b><table>';
             for(j in response) str += '<tr><th>' + j + '<td>' + response[j];
             str += '</table>';
         }
         var errcode = data['api'][i]['errcode'] || '';
         if(errcode) {
-            str += '<b>[ErrorCode]</b><table>';
+            str += '<b class="ErrorCode">[ErrorCode]</b><table>';
             for(j in errcode) str += '<tr><th>' + j + '<td>' + errcode[j];
             str += '</table>';
         }
     }
+    str = '<div class="nemoapidoc">' + str + '</div>';
     if(obj) {
         obj.innerHTML = str;
     } else {
