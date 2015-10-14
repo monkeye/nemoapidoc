@@ -21,7 +21,7 @@ function parseData(datas, obj) {
             var get_request = data['api'][i]['get_request'] || '';
             var post_request = data['api'][i]['post_request'] || '';
             if(get_request || post_request) {
-                str += '<b class="Request">[Request]</b><form method="' + (post_request ? 'post' : 'get') + '" _action="' + data['baseurl'] + data['api'][i]['url'] + '" onsubmit="setget(this)" target="_blank">';
+                str += '<b class="Request">[Request]</b><form method="post" _action="' + data['baseurl'] + data['api'][i]['url'] + '" onsubmit="setget(this)" target="_blank">';
             }
             if(get_request) {
                 str += '<table><tr><th>[GET]';
