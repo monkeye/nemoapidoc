@@ -76,7 +76,7 @@ function setget(obj) {
     var param = '';
     for(i in inputs) {
         var getval = inputs[i].attributes && inputs[i].attributes['get'] || null;
-        if(getval) param += getval.value + '=' + escape(inputs[i].value) + '&';
+        if(getval) param += getval.value + '=' + encodeURIComponent(inputs[i].value) + '&';
     }
     var a = obj.attributes['_action'].value;
     obj.action = a + (a.indexOf('?') !== -1 ? '&' : '?') + param;
